@@ -1,0 +1,23 @@
+
+
+.web_name{
+  color: black;
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+:root{
+  --pink_color : rgb(232, 65, 112);
+  --light_navi : rgb(86, 86, 233);
+  --midium-blue : blue;
+ --dark-navi : rgb(7, 7, 119);
+ --red:Red;
+ --sky_blue : #eeeffb;
+ --pantone_Purple : rgb(229, 157, 229);
+ --offBlue : rgb(1, 1, 51);
+
+
+  --font-small: 14px;
+  --font-medium: 16px;
+  --font-alarge: 20px;
+}

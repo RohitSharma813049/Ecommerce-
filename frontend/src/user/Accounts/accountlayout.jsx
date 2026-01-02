@@ -1,0 +1,10 @@
+function Accountlayout(){
+    
+    return(
+        <>
+        
+        
+        </>
+    )
+
+}
