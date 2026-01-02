@@ -6,7 +6,6 @@ function Blog ()
 
         <h1> Blog </h1>
 
-        <h1>rohit</h1>
         </>
     )
 }

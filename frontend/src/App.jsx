@@ -8,6 +8,7 @@ import Blog from './user/components/Blog/Blog'
 import Contact from './user/components/contact/contact'
 import Shop from './user/components/shop/Shop'
 import ErrorPage from './error/error'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
   <Route path="*" element={<ErrorPage/>} />
   </Route>
   </Routes>
+  <ToastContainer/>
     </>
   )
 }
