@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { data } from "react-router-dom";
 
 function Product() {
   const [products, setProducts] = useState([]);
@@ -7,6 +8,7 @@ function Product() {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((data) => setProducts(data))
+      .then(console.log(products))
       .catch((err) => console.error("Failed to fetch products:", err));
   }, []);
 
