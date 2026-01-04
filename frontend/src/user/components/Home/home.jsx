@@ -1,9 +1,10 @@
+import Slider from "./slider/slider"
 
 
 function Home (){
     return(
         <>
-         Home
+         <Slider/>
         </>
     )
 }
