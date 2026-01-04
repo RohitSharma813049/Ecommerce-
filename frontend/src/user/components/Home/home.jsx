@@ -19,12 +19,12 @@ function Home() {
 
   return (
     <div>
-      {/* Top Slider */}
+     
       <div>
         <Slider products={products.slice(0, 5)} />
       </div>
 
-      {/* Products by category (show only 4 + View More link) */}
+      
       <div className="max-w-7xl mx-auto px-6 py-12">
         {categories.map((category) => {
           const categoryProducts = products.filter(

@@ -3,7 +3,9 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 function Slider() {
+
 const sliderData = [
+
   {
     id: 1,
     lamp: "../../../../../public/home/slider.jsx/lamp.png",
@@ -14,6 +16,7 @@ const sliderData = [
     desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   },
+
   {
     id: 2,
      lamp: "../../../../../public/home/slider.jsx/lamp.png",
@@ -24,6 +27,7 @@ const sliderData = [
     desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   },
+
   {
     id: 3,
       lamp: "../../../../../public/home/slider.jsx/lamp.png",
@@ -34,6 +38,7 @@ const sliderData = [
     desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   }
+  
 ];
 
 
@@ -54,7 +59,7 @@ const sliderData = [
               <img src={item.lamp} alt="Lamp" className="w-24 md:w-32" />
             </div>
 
-            {/* Text */}
+         
             <div className="text-center md:text-left">
               <p className="text-pink-600 font-medium mb-2">
                 {item.subtitle}
