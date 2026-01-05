@@ -21,7 +21,7 @@ function Home() {
     <div>
      
       <div>
-        <Slider products={products.slice(0, 5)} />
+        <Slider />
       </div>
 
       
