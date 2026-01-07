@@ -16,6 +16,7 @@ function CategoryPage() {
         );
         setProducts(filtered);
       })
+
       .catch((err) => console.error(err));
   }, [categoryName]);
 
