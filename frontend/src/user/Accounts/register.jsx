@@ -2,11 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { SuccessMessage, ErrorMessage } from "@/utils/message/message";
 
 function Register() {
-<<<<<<< HEAD
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-=======
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -20,7 +16,7 @@ function Register() {
     }
   };
 
->>>>>>> origin/dev-rohit
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
