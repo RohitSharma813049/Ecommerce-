@@ -11,7 +11,7 @@ function PageLayout() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 px-6 py-8">
+      <main className="flex-1">
         <Outlet />
       </main>
 
