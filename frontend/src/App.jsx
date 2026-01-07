@@ -17,6 +17,7 @@ import Register from './user/Accounts/register'
 
 import ErrorPage from './error/error'
 import { ToastContainer } from 'react-toastify'
+import CategoryPage from './user/components/Home/category/category'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="wishlist" element={<Wishlist />} />
           <Route path="cart" element={<Cart />} />
+ <Route path="category/:categoryName" element={<CategoryPage/>} />
 
           {/* Account Pages */}
           <Route path="login" element={<Accountlayout />}>
