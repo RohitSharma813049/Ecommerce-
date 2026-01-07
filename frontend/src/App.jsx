@@ -34,7 +34,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="wishlist" element={<Wishlist />} />
           <Route path="cart" element={<Cart />} />
- <Route path="category/:categoryName" element={<CategoryPage/>} />
+      <Route path="category/:categoryName" element={<CategoryPage/>} />
 
           {/* Account Pages */}
           <Route path="login" element={<Accountlayout />}>

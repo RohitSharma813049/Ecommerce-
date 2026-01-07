@@ -23,7 +23,7 @@ function Login() {
             Login
           </h2>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
               <label className="block text-sm font-medium text-gray-600 mb-1">
                 Email
@@ -64,9 +64,9 @@ function Login() {
 
           <p className="text-sm text-center text-gray-600 mt-4">
             Don’t have an account?{" "}
-            <a href="#" className="text-blue-500 hover:underline">
+            <Link to="/login/register" className="text-blue-500 hover:underline">
               Sign up
-            </a>
+            </Link>
           </p>
         </div>
       </div>
