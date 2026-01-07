@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { SuccessMessage, ErrorMessage } from "@/utils/message/message";
 
 function Register() {
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -14,6 +15,7 @@ function Register() {
       ErrorMessage(error);
     }
   };
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">

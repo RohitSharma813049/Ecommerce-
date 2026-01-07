@@ -81,7 +81,6 @@ const sliderData = [
               </button>
             </div>
 
-            {/* Sofa */}
             <div className="flex justify-center relative">
               <div className="absolute w-72 h-72 bg-pink-100 rounded-full -z-10"></div>
               <img src={item.sofa} alt="Sofa" className="w-64 md:w-80" />
