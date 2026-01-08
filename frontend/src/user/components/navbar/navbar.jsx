@@ -51,7 +51,7 @@ function Navbar() {
 
               <select className="bg-transparent outline-none cursor-pointer">
                 <option className="text-black">English</option>
-                <option className="text-black">Bangla</option>
+                <option className="text-black">Hindi</option>
               </select>
 
               <select className="bg-transparent outline-none cursor-pointer">
