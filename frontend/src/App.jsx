@@ -29,7 +29,7 @@ function App() {
         {/* Main Website Layout */}
         <Route path="/" element={<Pagelayout />}>
           <Route index element={<Home />} />
-          <Route path="page" element={<Page />} />
+          <Route path="page/search" element={<Page />} />
           <Route path="products" element={<Products />} />
           <Route path="about" element={<About/>} />
           <Route path="shop" element={<Shop />} />
@@ -38,6 +38,7 @@ function App() {
           <Route path="cart" element={<Cart />} />
          <Route path="category/:categoryName" element={<CategoryPage/>} />
         <Route path="product/:id" element={<Productdetail/>} />
+       
 
 
           {/* Account Pages */}

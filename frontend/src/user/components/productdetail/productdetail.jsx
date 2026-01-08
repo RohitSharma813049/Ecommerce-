@@ -1,12 +1,13 @@
-// src/user/components/Product/Productdetail.jsx
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
-function Productdetail() {
+function BuyPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [related, setRelated] = useState([]);
   const [activeTab, setActiveTab] = useState("description");
+  const [quantity, setQuantity] = useState(1);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
@@ -30,19 +31,26 @@ function Productdetail() {
     return <p className="text-center mt-10">Loading product...</p>;
   }
 
+  const handleBuyNow = () => {
+    setShowModal(true);
+  };
+
+  const totalPrice = (product.price * quantity).toFixed(2);
+
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 relative">
       {/* Breadcrumb */}
       <div className="bg-gray-100 py-6">
         <div className="max-w-7xl mx-auto px-6 text-sm text-gray-600">
-          <Link to="/" className="hover:text-pink-600">Home</Link> / 
-          <span className="text-pink-600"> Product Details</span>
+          <Link to="/" className="hover:text-pink-600">
+            Home
+          </Link>{" "}
+          / <span className="text-pink-600"> Product Details</span>
         </div>
       </div>
 
       {/* Product Section */}
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-10">
-        
         {/* Image Gallery */}
         <div className="flex gap-4">
           <div className="flex flex-col gap-3">
@@ -66,7 +74,7 @@ function Productdetail() {
         </div>
 
         {/* Product Info */}
-        <div>
+        <div className="flex flex-col">
           <h1 className="text-3xl font-bold mb-2">{product.title}</h1>
 
           <div className="flex items-center gap-2 mb-4">
@@ -80,9 +88,7 @@ function Productdetail() {
             ${product.price}
           </div>
 
-          <p className="text-gray-600 mb-6">
-            {product.description}
-          </p>
+          <p className="text-gray-600 mb-6">{product.description}</p>
 
           {/* Color */}
           <div className="mb-4">
@@ -94,17 +100,23 @@ function Productdetail() {
             </div>
           </div>
 
-          {/* Quantity + Cart */}
+          {/* Quantity + Buy Now */}
           <div className="flex items-center gap-4 mt-6">
             <input
               type="number"
               min="1"
-              defaultValue="1"
+              value={quantity}
+              onChange={(e) =>
+                setQuantity(Math.max(1, parseInt(e.target.value) || 1))
+              }
               className="w-20 border rounded px-2 py-1"
             />
 
-            <button className="bg-pink-600 text-white px-6 py-3 rounded hover:bg-pink-700 transition">
-              Add to Cart
+            <button
+              onClick={handleBuyNow}
+              className="bg-pink-600 text-white px-6 py-3 rounded hover:bg-pink-700 transition"
+            >
+              Buy Now
             </button>
           </div>
 
@@ -133,9 +145,7 @@ function Productdetail() {
         </div>
 
         {activeTab === "description" && (
-          <p className="text-gray-600 leading-relaxed">
-            {product.description}
-          </p>
+          <p className="text-gray-600 leading-relaxed">{product.description}</p>
         )}
 
         {activeTab === "additional" && (
@@ -146,16 +156,10 @@ function Productdetail() {
           </ul>
         )}
 
-        {activeTab === "reviews" && (
-          <p className="text-gray-600">
-            No reviews yet.
-          </p>
-        )}
+        {activeTab === "reviews" && <p className="text-gray-600">No reviews yet.</p>}
 
         {activeTab === "video" && (
-          <p className="text-gray-600">
-            Product video coming soon.
-          </p>
+          <p className="text-gray-600">Product video coming soon.</p>
         )}
       </div>
 
@@ -183,8 +187,50 @@ function Productdetail() {
           ))}
         </div>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          onClick={() => setShowModal(false)}
+        >
+          <div
+            className="bg-white p-6 rounded shadow-lg max-w-md w-full"
+            onClick={(e) => e.stopPropagation()} // prevent modal close on inner click
+          >
+            <h2 className="text-xl font-bold mb-4">Purchase Confirmation</h2>
+            <p>
+              You are about to buy <strong>{quantity}</strong> x{" "}
+              <strong>{product.title}</strong>.
+            </p>
+            <p className="mt-2 font-semibold">
+              Total Price: <span className="text-pink-600">${totalPrice}</span>
+            </p>
+
+            <div className="mt-6 flex justify-end space-x-4">
+              <button
+                className="px-4 py-2 rounded border border-gray-300 hover:bg-gray-100"
+                onClick={() => setShowModal(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="px-4 py-2 rounded bg-pink-600 text-white hover:bg-pink-700"
+                onClick={() => {
+                  setShowModal(false);
+                  alert(
+                    `Thank you for buying ${quantity} x "${product.title}" for $${totalPrice}!`
+                  );
+                }}
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
-export default Productdetail;
+export default BuyPage;

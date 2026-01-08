@@ -4,6 +4,7 @@ import { HiMenu, HiX } from "react-icons/hi";
 import { useState } from "react";
 import { FaPhoneAlt, FaHeart, FaShoppingCart } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
+import Search from "./search/search";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -81,26 +82,14 @@ function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-6 text-sm md:text-base">
             <NavLink to="/" className={linkClass}>Home</NavLink>
-            <NavLink to="/page" className={linkClass}>Page</NavLink>
             <NavLink to="/products" className={linkClass}>Products</NavLink>
             <NavLink to="/about" className={linkClass}>About</NavLink>
             <NavLink to="/shop" className={linkClass}>Shop</NavLink>
             <NavLink to="/contact" className={linkClass}>Contact</NavLink>
           </div>
+             
 
-          {/* Desktop Search */}
-          <div className="hidden md:flex border rounded">
-            <input
-              className="px-3 py-1 outline-none text-sm"
-              placeholder="Search..."
-            />
-            <button
-              style={{ backgroundColor: "var(--pink_color)" }}
-              className="px-3 text-white"
-            >
-              <CiSearch />
-            </button>
-          </div>
+             <Search/>
 
           {/* Mobile Menu Button */}
           <button
@@ -116,7 +105,6 @@ function Navbar() {
           <div className="md:hidden flex flex-col gap-3 px-6 pb-4 text-sm border-t bg-white">
 
             <NavLink to="/" onClick={() => setOpen(false)}>Home</NavLink>
-            <NavLink to="/page" onClick={() => setOpen(false)}>Page</NavLink>
             <NavLink to="/products" onClick={() => setOpen(false)}>Products</NavLink>
             <NavLink to="/blog" onClick={() => setOpen(false)}>Blog</NavLink>
             <NavLink to="/shop" onClick={() => setOpen(false)}>Shop</NavLink>
