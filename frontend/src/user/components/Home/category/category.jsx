@@ -1,54 +1,86 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function CategoryPage() {
-  const { categoryName } = useParams(); // Get category from URL
+  const { categoryName } = useParams();
+  const decodedCategory = decodeURIComponent(categoryName);
+
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((data) => {
-        // Filter products by category
         const filtered = data.filter(
           (product) =>
-            product.category.toLowerCase() === categoryName.toLowerCase()
+            product.category.toLowerCase() === decodedCategory.toLowerCase()
         );
         setProducts(filtered);
+        setLoading(false);
       })
-
-      .catch((err) => console.error(err));
-  }, [categoryName]);
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
+  }, [decodedCategory]);
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       <h1 className="text-4xl font-bold mb-8 capitalize text-center">
-        {categoryName} Products
+        {decodedCategory} Products
       </h1>
 
-      {products.length === 0 ? (
+      {/* Loading */}
+      {loading && (
+        <p className="text-center text-gray-500">Loading products...</p>
+      )}
+
+      {/* Empty */}
+      {!loading && products.length === 0 && (
         <p className="text-center text-gray-500">
           No products found in this category.
         </p>
-      ) : (
+      )}
+
+      {/* Products */}
+      {!loading && products.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-white p-4 rounded shadow hover:shadow-lg transition"
+              className="bg-white p-4 rounded shadow hover:shadow-lg transition hover:scale-105 duration-300"
             >
-              <img
-                src={product.image}
-                alt={product.title}
-                className="w-full h-48 object-contain mb-4"
-              />
-              <h3 className="text-lg font-semibold mb-2">{product.title}</h3>
+              {/* Image */}
+              <Link to={`/product/${product.id}`}>
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="w-full h-48 object-contain mb-4 cursor-pointer"
+                />
+              </Link>
+
+              {/* Title */}
+              <h3 className="text-lg font-semibold mb-2">
+                <Link
+                  to={`/product/${product.id}`}
+                  className="hover:text-pink-600"
+                >
+                  {product.title}
+                </Link>
+              </h3>
+
+              {/* Price */}
               <p className="text-pink-600 font-bold mb-2">
                 ${product.price.toFixed(2)}
               </p>
+
+              {/* Description */}
               <p className="text-gray-600 text-sm line-clamp-3">
                 {product.description}
               </p>
+
+              {/* Button */}
               <button className="mt-4 w-full bg-pink-600 text-white py-2 rounded hover:bg-pink-700 transition">
                 Add to Cart
               </button>

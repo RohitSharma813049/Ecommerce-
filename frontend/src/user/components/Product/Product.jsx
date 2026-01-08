@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { data } from "react-router-dom";
+import Card from "../card/card"; // <-- use the reusable Card
 
 function Product() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .then(console.log(products))
-      .catch((err) => console.error("Failed to fetch products:", err));
+      .then((data) => {
+        setProducts(data);
+        setLoading(false);
+        console.log("Fetched products:", data);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch products:", err);
+        setLoading(false);
+      });
   }, []);
 
-  if (!products.length) {
-    return <p className="text-center mt-10">Loading products...</p>;
+  if (loading) {
+    return <p className="text-center mt-10 text-gray-500">Loading products...</p>;
   }
 
   return (
@@ -22,22 +29,7 @@ function Product() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
-          <div
-            key={product.id}
-            className="bg-white p-4 rounded shadow hover:shadow-lg transition"
-          >
-            <img
-              src={product.image}
-              alt={product.title}
-              className="w-full h-48 object-contain mb-4"
-            />
-            <h2 className="text-lg font-semibold mb-2">{product.title}</h2>
-            <p className="text-pink-600 font-bold mb-2">${product.price.toFixed(2)}</p>
-            <p className="text-gray-600 text-sm line-clamp-3">{product.description}</p>
-            <button className="mt-4 w-full bg-pink-600 text-white py-2 rounded hover:bg-pink-700 transition">
-              Add to Cart
-            </button>
-          </div>
+          <Card key={product.id} product={product} />
         ))}
       </div>
     </div>

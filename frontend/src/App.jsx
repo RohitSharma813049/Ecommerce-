@@ -5,7 +5,7 @@ import Home from './user/components/Home/home'
 import Pagelayout from './user/pagelayout/pagelayout'
 import Page from './user/components/Page/page'
 import Products from './user/components/Product/Product'
-import Blog from './user/components/Blog/Blog'
+import Blog from './user/components/about/about'
 import Contact from './user/components/contact/contact'
 import Shop from './user/components/shop/Shop'
 import Wishlist from './user/components/Wishlist/wishlist'
@@ -18,6 +18,8 @@ import Register from './user/Accounts/register'
 import ErrorPage from './error/error'
 import { ToastContainer } from 'react-toastify'
 import CategoryPage from './user/components/Home/category/category'
+import About from './user/components/about/about'
+import Productdetail from './user/components/productdetail/productdetail'
 
 function App() {
   return (
@@ -29,12 +31,14 @@ function App() {
           <Route index element={<Home />} />
           <Route path="page" element={<Page />} />
           <Route path="products" element={<Products />} />
-          <Route path="blog" element={<Blog />} />
+          <Route path="about" element={<About/>} />
           <Route path="shop" element={<Shop />} />
           <Route path="contact" element={<Contact />} />
           <Route path="wishlist" element={<Wishlist />} />
           <Route path="cart" element={<Cart />} />
-      <Route path="category/:categoryName" element={<CategoryPage/>} />
+         <Route path="category/:categoryName" element={<CategoryPage/>} />
+        <Route path="product/:id" element={<Productdetail/>} />
+
 
           {/* Account Pages */}
           <Route path="login" element={<Accountlayout />}>

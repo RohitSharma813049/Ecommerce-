@@ -83,7 +83,7 @@ function Navbar() {
             <NavLink to="/" className={linkClass}>Home</NavLink>
             <NavLink to="/page" className={linkClass}>Page</NavLink>
             <NavLink to="/products" className={linkClass}>Products</NavLink>
-            <NavLink to="/blog" className={linkClass}>Blog</NavLink>
+            <NavLink to="/about" className={linkClass}>About</NavLink>
             <NavLink to="/shop" className={linkClass}>Shop</NavLink>
             <NavLink to="/contact" className={linkClass}>Contact</NavLink>
           </div>
