@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './index.css'
-import { WishlistProvider } from './user/context/wishlistcontext'
+import { WishlistProvider } from './user/context/WishlistContext'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
  <WishlistProvider>
