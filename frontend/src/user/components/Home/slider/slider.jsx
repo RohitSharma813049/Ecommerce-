@@ -7,8 +7,8 @@ function Slider() {
 const sliderData = [
   {
     id: 1,
-    lamp: "/home/images/lamp.png",
-    sofa: "/home/images/sofa.png",
+    lamp: "/home/image/lamp.png",
+    sofa: "/home/image/sofa.png",
     subtitle: "Best Furniture For Your Castle...",
     title1: "New Furniture Collection",
     title2: "Trends in 2020",
@@ -16,8 +16,8 @@ const sliderData = [
   },
   {
     id: 2,
-    lamp: "/home/images/lamp.png",
-    sofa: "/home/images/sofa.png",
+    lamp: "/home/image/lamp.png",
+    sofa: "/home/image/sofa.png",
     subtitle: "Top Quality Designs",
     title1: "Modern Furniture",
     title2: "Trends in 2021",
@@ -25,14 +25,15 @@ const sliderData = [
   },
   {
     id: 3,
-    lamp: "/home/images/lamp.png",
-    sofa: "/home/images/sofa.png",
+    lamp: "/home/image/lamp.png",
+    sofa: "/home/image/sofa.png",
     subtitle: "Best Choice For Home",
     title1: "Luxury Furniture",
     title2: "Trends in 2022",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   }
 ];
+
 
   return (
     <Swiper
