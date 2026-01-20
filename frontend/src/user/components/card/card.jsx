@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useWishlist } from "../../context/WishlistContext";
+import { useCart } from "../../context/CartContext";
 
 function Card({ product }) {
   const { addToWishlist } = useWishlist();
+  const { addToCart } = useCart();
 
   return (
     <div className="bg-white p-4 rounded shadow hover:shadow-lg transition hover:scale-105 duration-300">
-      {/* Product Image */}
+      {/* Image */}
       <Link to={`/product/${product.id}`}>
         <img
           src={product.image}
@@ -16,7 +18,7 @@ function Card({ product }) {
         />
       </Link>
 
-      {/* Product Title */}
+      {/* Title */}
       <h3 className="text-lg font-semibold mb-2 line-clamp-2">
         <Link
           to={`/product/${product.id}`}
@@ -39,6 +41,7 @@ function Card({ product }) {
       {/* Buttons */}
       <div className="flex gap-2">
         <button
+          onClick={() => addToCart(product)}
           className="flex-1 bg-pink-600 text-white py-2 rounded hover:bg-pink-700 transition"
         >
           Add to Cart
