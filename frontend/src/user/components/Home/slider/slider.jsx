@@ -1,14 +1,16 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import lampImg from "../../../../assets/home/slider/lamp.png";
+import sofaImg from "../../../../assets/home/slider/sofa.png";
 
 function Slider() {
 
 const sliderData = [
   {
     id: 1,
-    lamp: "/home/image/lamp.png",
-    sofa: "/home/image/sofa.png",
+    lamp: lampImg,
+    sofa: sofaImg,
     subtitle: "Best Furniture For Your Castle...",
     title1: "New Furniture Collection",
     title2: "Trends in 2020",
@@ -16,8 +18,8 @@ const sliderData = [
   },
   {
     id: 2,
-    lamp: "/home/image/lamp.png",
-    sofa: "/home/image/sofa.png",
+    lamp: lampImg,
+    sofa: sofaImg,
     subtitle: "Top Quality Designs",
     title1: "Modern Furniture",
     title2: "Trends in 2021",
@@ -25,8 +27,8 @@ const sliderData = [
   },
   {
     id: 3,
-    lamp: "/home/image/lamp.png",
-    sofa: "/home/image/sofa.png",
+    lamp: lampImg,
+    sofa: sofaImg,
     subtitle: "Best Choice For Home",
     title1: "Luxury Furniture",
     title2: "Trends in 2022",
