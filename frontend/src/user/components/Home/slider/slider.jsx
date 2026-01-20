@@ -5,42 +5,34 @@ import "swiper/css";
 function Slider() {
 
 const sliderData = [
-
   {
     id: 1,
-    lamp: "./home/slider.jsx/lamp.png",
-    sofa: "./public/home/slider.jsx/sofa.png",
+    lamp: "/images/lamp.png",
+    sofa: "/images/sofa.png",
     subtitle: "Best Furniture For Your Castle...",
     title1: "New Furniture Collection",
     title2: "Trends in 2020",
-    desc:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   },
-
   {
     id: 2,
-     lamp: "./home/slider.jsx/lamp.png",
-    sofa: "./home/slider.jsx/sofa.png",
+    lamp: "/images/lamp.png",
+    sofa: "/images/sofa.png",
     subtitle: "Top Quality Designs",
     title1: "Modern Furniture",
     title2: "Trends in 2021",
-    desc:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   },
-
   {
     id: 3,
-      lamp: "./public/home/slider.jsx/lamp.png",
-    sofa: "./home/slider.jsx/sofa.png",
+    lamp: "/images/lamp.png",
+    sofa: "/images/sofa.png",
     subtitle: "Best Choice For Home",
     title1: "Luxury Furniture",
     title2: "Trends in 2022",
-    desc:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   }
-  
 ];
-
 
   return (
     <Swiper
